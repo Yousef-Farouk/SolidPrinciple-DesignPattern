@@ -6,16 +6,24 @@ using System.Threading.Tasks;
 
 namespace SolidPrinc.Liskov_Substitution
 {
-    public class Account
+
+    public abstract class BankAccount
     {
         public decimal Balance { get; protected set; }
 
-        public virtual void Deposit(decimal amount)
+        public abstract void Deposit(decimal amount);
+
+        public abstract void Withdraw(decimal amount);
+    }
+    public class Account : BankAccount
+    {
+
+        public override void Deposit(decimal amount)
         {
             Balance += amount;
         }
 
-        public virtual void Withdraw(decimal amount)
+        public override void Withdraw(decimal amount)
         {
             if (Balance >= amount)
             {
@@ -28,7 +36,7 @@ namespace SolidPrinc.Liskov_Substitution
         }
     }
 
-    public class SavingsAccount : Account
+    public class SavingsAccount : BankAccount
     {
         public decimal InterestRate { get; set; }
 
