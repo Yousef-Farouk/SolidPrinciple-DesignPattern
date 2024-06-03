@@ -1,6 +1,4 @@
-﻿using SolidPrinc.Decorator_Pattern;
-
-namespace SolidPrinc
+﻿namespace SolidPrinc
 {
     internal class Program
     {
@@ -12,7 +10,6 @@ namespace SolidPrinc
              text = new BoldTextDecorator(text);
              text = new ItalicTextDecorator(text);
 
-            Console.WriteLine(text.GetText());
 
         }
     }
