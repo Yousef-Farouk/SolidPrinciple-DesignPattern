@@ -1,4 +1,5 @@
-﻿using SolidPrinc.Builder_DP;
+﻿using SolidPrinc.Adapter_Pattern;
+using SolidPrinc.Builder_DP;
 
 namespace SolidPrinc
 {
@@ -7,12 +8,19 @@ namespace SolidPrinc
         static void Main(string[] args)
         {
 
-            var toyACreator = new ToyCreator(new ToyABuilder());
-            toyACreator.CreateToy();
-            toyACreator.GetToy();
-            var toyBCreator = new ToyCreator(new ToyBBuilder());
-            toyBCreator.CreateToy();
-            toyBCreator.GetToy();
+            //var toyACreator = new ToyCreator(new ToyABuilder());
+            //toyACreator.CreateToy();
+            //toyACreator.GetToy();
+            //var toyBCreator = new ToyCreator(new ToyBBuilder());
+            //toyBCreator.CreateToy();
+            //toyBCreator.GetToy();
+
+
+            Adaptee adaptee = new Adaptee();
+            ITarget adapter = new Adapter(adaptee);
+
+            Console.WriteLine("Client: I can work just fine with the Adapter:");
+            Console.WriteLine(adapter.Request());
         }
     }
 
