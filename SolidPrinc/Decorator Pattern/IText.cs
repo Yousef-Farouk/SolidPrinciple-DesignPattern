@@ -8,7 +8,7 @@ namespace SolidPrinc.Decorator_Pattern
 {
     internal interface IText
     {  
-        public  string GetText();
+        public string GetText();
     }
 
 

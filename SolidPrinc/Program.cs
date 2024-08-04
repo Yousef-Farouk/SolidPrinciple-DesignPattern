@@ -1,7 +1,7 @@
 ﻿using SolidPrinc.Decorator_Pattern;
 ﻿using SolidPrinc.Builder_DP;
 using SolidPrinc.Adapter_Pattern;
-using SolidPrinc.Builder_DP;
+using SolidPrinc.Factory_DP;
 
 namespace SolidPrinc
 {
@@ -31,11 +31,17 @@ namespace SolidPrinc
             //toyBCreator.GetToy();
 
 
-            Adaptee adaptee = new Adaptee();
-            ITarget adapter = new Adapter(adaptee);
+            //Adaptee adaptee = new Adaptee();
+            //ITarget adapter = new Adapter(adaptee);
 
-            Console.WriteLine("Client: I can work just fine with the Adapter:");
-            Console.WriteLine(adapter.Request());
+            //Console.WriteLine("Client: I can work just fine with the Adapter:");
+            //Console.WriteLine(adapter.Request());
+
+            FileLoggerFactory fileLoggerFactory = new FileLoggerFactory();
+
+            var logger = new Client(fileLoggerFactory);
+
+            Console.WriteLine(logger.GetLogger());
         }
     }
 
